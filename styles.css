@@ -122,3 +122,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#326681
   .guide-link{padding:20px 16px}
 }
 @media print{body{background:white}.staff-card,.relatives-panel,.button{box-shadow:none}}
+
+/* Keep touch scrolling free of browser highlighting; retain keyboard focus. */
+.team-track{-webkit-tap-highlight-color:transparent}
+.team-track:focus:not(:focus-visible){outline:none}
+.team-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:760px){
+  .team-track{scrollbar-width:none}
+  .team-track::-webkit-scrollbar{display:none}
+  .staff-card,.staff-card:hover{border-color:transparent;box-shadow:none}
+}
