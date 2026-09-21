@@ -22,6 +22,16 @@ window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
   if (event.matches) closeMenu();
 });
 const track = document.querySelector('#team-track');
+// Native dialogs may restore :focus-visible after touch. Preserve focus, but
+// show the carousel focus ring only when the visitor uses the keyboard.
+document.addEventListener('pointerdown', () => {
+  track.classList.add('pointer-interaction');
+}, {capture: true, passive: true});
+document.addEventListener('keydown', event => {
+  if (!['Shift', 'Control', 'Alt', 'Meta'].includes(event.key)) {
+    track.classList.remove('pointer-interaction');
+  }
+}, {capture: true});
 const previous = document.querySelector('#team-prev');
 const next = document.querySelector('#team-next');
 const position = document.querySelector('.team-position');

@@ -127,6 +127,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#326681
 .team-track{-webkit-tap-highlight-color:transparent}
 .team-track:focus:not(:focus-visible){outline:none}
 .team-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.team-track.pointer-interaction:focus,
+.team-track.pointer-interaction .staff-button:focus{outline:none}
 @media(max-width:760px){
   .team-track{scrollbar-width:none}
   .team-track::-webkit-scrollbar{display:none}
